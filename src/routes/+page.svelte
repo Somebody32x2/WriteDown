@@ -1,2 +1,6 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+    // TODO: Flag input menu (& maybe server validation [must be a valid flag])
+</script>
+<div class="w-full bg-gray-800 min-h-screen">
+    <p class="text-white">WriteDown</p>
+</div>
