@@ -3,5 +3,5 @@ export interface writeupInfo {
     content: string;
     date: string;
     path: string;
-    // TODO: Store some data for thumnail maybe? (or render some on the fly)
+    // TODO: Store some data for thumbnail maybe? (or render some on the fly)
 }
