@@ -7,13 +7,20 @@
     let sampleWriteupInfo: writeupInfo = {
         author: 'John Doe',
         date: '2021-10-10',
-        content: 'This is a writeup for the challenge. It contains the solution and explanation of the challenge.',
+        content:
+            'This is a writeup for the challenge. It contains the solution and explanation of the challenge.',
         path: 'john_doe_1'
-    }
+    };
     let writeups: writeupInfo[] = [
-        sampleWriteupInfo, sampleWriteupInfo, sampleWriteupInfo, sampleWriteupInfo, sampleWriteupInfo, sampleWriteupInfo
+        sampleWriteupInfo,
+        sampleWriteupInfo,
+        sampleWriteupInfo,
+        sampleWriteupInfo,
+        sampleWriteupInfo,
+        sampleWriteupInfo
     ];
 </script>
+
 <div class="w-full bg-gray-800 min-h-screen flex flex-col items-center justify-center px-5">
     <div class="grid grid-cols-1 lg:grid-cols-2">
         {#each writeups as writeup}
