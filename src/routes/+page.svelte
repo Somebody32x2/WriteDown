@@ -1,5 +1,25 @@
 <script lang="ts">
     // TODO: (maybe server validation [must be a valid flag])
+    async function handleFlagSubmit() {
+        // Get and validate the flag
+        const flagInput = document.getElementById('flagInput') as HTMLInputElement;
+        const flag = flagInput.value.trim();
+        if (!flag) {
+            alert('Please enter a flag.');
+            return;
+        }
+        // TODO: (possibly validate the flag contents are a real flag)
+        // Hash the flag using sha256 subtle crypto
+        const encoder = new TextEncoder();
+        const data = encoder.encode(flag);
+        const hash = await crypto.subtle.digest('SHA-256', data);
+        // Convert the hash to a hex string
+        const hashArray = Array.from(new Uint8Array(hash));
+        const hashHex = hashArray.map((b) => b.toString(16).padStart(2, '0')).join('');
+        if (window && window.location) {
+            window.location.href = `/${hashHex}`;
+        }
+    }
 </script>
 
 <div class="w-full bg-gray-800 min-h-screen flex flex-col items-center justify-center px-5">
@@ -20,6 +40,11 @@
             type="text"
             placeholder="prefix{`{__FLAG__}`}"
         />
+        <button
+            on:click={handleFlagSubmit}
+            class="text-white m-10 text-xl font-bold bg-blue-900 p-3 rounded-lg border border-gray-500"
+            >Go!</button
+        >
         <p
             id="message-not-found-error"
             class="text-xl font-bold text-red-600 mt-10 text-center hidden"

@@ -32,4 +32,9 @@
             </div>
         {/each}
     </div>
+    <a
+        href={window?.location?.href + '/create'}
+        class="text-white m-10 text-xl font-bold bg-blue-900 p-3 rounded-lg border border-gray-500"
+        >Create</a
+    >
 </div>
