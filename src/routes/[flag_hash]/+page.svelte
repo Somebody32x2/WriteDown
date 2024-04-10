@@ -3,7 +3,14 @@
     // TODO: Fetch writeups from the server/load from server side.
     // Temp: sample writeup data
     import type { writeupInfo } from '$lib/flag_hash';
+    import { onMount } from 'svelte';
 
+    let createUrl = '/writeup/create';
+    onMount(() => {
+        if (window && window.location.href) {
+            createUrl = window.location.href + '/create';
+        }
+    });
     let sampleWriteupInfo: writeupInfo = {
         author: 'John Doe',
         date: '2021-10-10',
@@ -33,7 +40,7 @@
         {/each}
     </div>
     <a
-        href={window?.location?.href + '/create'}
+        href={createUrl}
         class="text-white m-10 text-xl font-bold bg-blue-900 p-3 rounded-lg border border-gray-500"
         >Create</a
     >
