@@ -5,10 +5,10 @@
     import type { writeupInfo } from '$lib/flag_hash';
     import { onMount } from 'svelte';
 
-    let createUrl = '/writeup/create';
+    let location = '/writeup/';
     onMount(() => {
         if (window && window.location.href) {
-            createUrl = window.location.href + '/create';
+            location = window.location.href;
         }
     });
     let sampleWriteupInfo: writeupInfo = {
@@ -35,12 +35,12 @@
                 <h2 class="text-2xl text-white font-bold">{writeup.author}</h2>
                 <p class="text-gray-400">{writeup.date}</p>
                 <p class="text-gray-300">{writeup.content}</p>
-                <a href={`writeup/${writeup.path}`} class="text-blue-500">Read more</a>
+                <a href={`${location}/${writeup.path}`} class="text-blue-500">Read more</a>
             </div>
         {/each}
     </div>
     <a
-        href={createUrl}
+        href={location + '/create'}
         class="text-white m-10 text-xl font-bold bg-blue-900 p-3 rounded-lg border border-gray-500"
         >Create</a
     >
